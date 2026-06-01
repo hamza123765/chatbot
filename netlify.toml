@@ -1,10 +1,10 @@
 [build]
-  publish = "."
-
-[functions]
-  included_files = ["netlify/functions/**"]
+  # For a pure API, this can just be an empty directory or your serverless folder
+  functions = "functions" 
 
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/:splat"
   status = 200
+  # Points to your API entry file (e.g., functions/api.js)
+  force = true
+  to = "/.netlify/functions/api/:splat"
