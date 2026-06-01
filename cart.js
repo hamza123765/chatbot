@@ -1,11 +1,3 @@
-// ==================== SHARED CART SYSTEM ====================
-// This file handles persistent cart, product displays, and checkout for:
-// - index.html (main page)
-// - gpu.html (graphics cards)
-// - laptop.html (laptops)
-// ============================================================
-
-// Storage key - MUST be the same across all pages
 const STORAGE_KEY = 'kna_shared_cart';
 
 // Global cart array
@@ -285,7 +277,7 @@ async function submitOrder() {
         const response = await fetch('/api/orders', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(orderPayload)
+            body: JSON.stringify(orderData)
         });
 
         const data = await response.json();
